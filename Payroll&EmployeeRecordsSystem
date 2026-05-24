@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    cout << "Enter number of employees: ";
+    cin >> n;
+    cin.ignore(); 
+    string *names = new string[n];
+    double *salaries = new double[n];
+    for (int i = 0; i < n; i++) {
+        cout << "\nEnter name of employee " << i + 1 << ": ";
+        getline(cin, names[i]);
+        cout << "Enter salary: ";
+        cin >> salaries[i];
+        cin.ignore();
+    }
+    int maxIndex = 0;
+    for (int i = 1; i < n; i++) {
+        if (salaries[i] > salaries[maxIndex]) {
+            maxIndex = i;
+        }
+    }
+    cout << "\n--- Employee Records ---\n";
+    for (int i = 0; i < n; i++) {
+        cout << names[i] << " - " << salaries[i] << endl;
+    }
+    cout << "\nHighest Salary:";
+    cout << "\n" << names[maxIndex] << " - " << salaries[maxIndex] << endl;
+    delete[] names;
+    delete[] salaries;
+    return 0;
+}
