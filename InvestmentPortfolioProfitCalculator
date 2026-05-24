@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    cout << "Enter number of investments: ";
+    cin >> n;
+    double *investments = new double[n];
+    for (int i = 0; i < n; i++) {
+        cout << "Enter investment " << i + 1 << ": ";
+        cin >> *(investments + i); 
+    }
+    cout << "\n--- Investment Profits ---\n";
+    for (int i = 0; i < n; i++) {
+        double profit = (*(investments + i)) * 0.10;
+        cout << "Investment: " << *(investments + i)
+             << " | Profit (10%): " << profit << endl;
+    }
+    delete[] investments;
+    return 0;
+}
