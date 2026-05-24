@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int acc1, acc2;
+    cout << "Enter Savings Account Balance: ";
+    cin >> acc1;
+    cout << "Enter Current Account Balance: ";
+    cin >> acc2;
+    int *p1 = &acc1;
+    int *p2 = &acc2;
+    cout << "\nBefore Swap:";
+    cout << "\nSavings: " << *p1;
+    cout << "\nCurrent: " << *p2;
+    *p1 = *p1 + *p2;
+    *p2 = *p1 - *p2;
+    *p1 = *p1 - *p2;
+    cout << "\n\nAfter Swap:";
+    cout << "\nSavings: " << *p1;
+    cout << "\nCurrent: " << *p2;
+    return 0;
+}
